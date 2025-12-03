@@ -1,0 +1,8 @@
+sn/groupe3/todo/TodoApplication.class
+sn/groupe3/todo/exception/ResourceNotFoundException.class
+sn/groupe3/todo/service/TaskServiceImpl.class
+sn/groupe3/todo/service/TaskService.class
+sn/groupe3/todo/model/Task.class
+sn/groupe3/todo/controller/TaskController.class
+sn/groupe3/todo/exception/GlobalExceptionHandler.class
+sn/groupe3/todo/repository/TaskRepository.class

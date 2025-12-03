@@ -1,0 +1,8 @@
+/home/aimerou/Bureau/todo/src/main/java/sn/groupe3/todo/exception/ResourceNotFoundException.java
+/home/aimerou/Bureau/todo/src/main/java/sn/groupe3/todo/service/TaskService.java
+/home/aimerou/Bureau/todo/src/main/java/sn/groupe3/todo/TodoApplication.java
+/home/aimerou/Bureau/todo/src/main/java/sn/groupe3/todo/repository/TaskRepository.java
+/home/aimerou/Bureau/todo/src/main/java/sn/groupe3/todo/controller/TaskController.java
+/home/aimerou/Bureau/todo/src/main/java/sn/groupe3/todo/exception/GlobalExceptionHandler.java
+/home/aimerou/Bureau/todo/src/main/java/sn/groupe3/todo/model/Task.java
+/home/aimerou/Bureau/todo/src/main/java/sn/groupe3/todo/service/TaskServiceImpl.java
