@@ -37,16 +37,19 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Task updateTask(Long id, Task updatedTask) {
-
-        // Recherche la tâche et lance une exception si elle n'existe pas
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(
-                        "Aucune tâche trouvée avec l'identifiant : " + id
-                ));
+                        "Aucune tâche trouvée avec l'identifiant : " + id));
 
-        // Mise à jour des champs de la tâche
-        task.setTitle(updatedTask.getTitle());
-        task.setDescription(updatedTask.getDescription());
+        // Mise à jour des champs de la tâche (gestion des valeurs null)
+        if (updatedTask.getTitle() != null) {
+            task.setTitle(updatedTask.getTitle());
+        }
+
+        if (updatedTask.getDescription() != null) {
+            task.setDescription(updatedTask.getDescription());
+        }
+
         task.setCompleted(updatedTask.isCompleted());
 
         // Sauvegarde de la tâche mise à jour
@@ -59,8 +62,7 @@ public class TaskServiceImpl implements TaskService {
         // Vérifie si la tâche existe
         if (!taskRepository.existsById(id)) {
             throw new ResourceNotFoundException(
-                    "Aucune tâche trouvée avec l'identifiant : " + id
-            );
+                    "Aucune tâche trouvée avec l'identifiant : " + id);
         }
 
         // Supprime la tâche
@@ -73,7 +75,6 @@ public class TaskServiceImpl implements TaskService {
         // Retourne la tâche si trouvée, sinon lance une exception
         return taskRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(
-                        "Aucune tâche trouvée avec l'identifiant : " + id
-                ));
+                        "Aucune tâche trouvée avec l'identifiant : " + id));
     }
 }
