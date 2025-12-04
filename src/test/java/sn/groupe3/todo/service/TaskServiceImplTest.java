@@ -10,14 +10,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 // Import des classes du projet
-import sn.groupe3.todo.exception.ResourceNotFoundException;
 import sn.groupe3.todo.model.Task;
 import sn.groupe3.todo.repository.TaskRepository;
 
 // Import des classes utilitaires Java
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 // Import statique : permet d'utiliser les méthodes sans préfixer avec le nom de la classe
 import static org.junit.jupiter.api.Assertions.*;
@@ -53,9 +51,23 @@ public class TaskServiceImplTest {
 
 		verify(taskRepository, times(1)).findAll();
 	
-
 	}
 
 
+	@Test
+	void testCreerTask(){
+		Task tacheAcreer = new Task("Nouvelle Tache", "Description de la nouvelle tache", false);
+		Task tacheSauvegardee = new Task("Nouvelle Tache", "Description de la nouvelle tache", false);
+		tacheSauvegardee.setId(1L);
+
+		when(taskRepository.save(tacheAcreer)).thenReturn(tacheSauvegardee);
+
+		Task tacheCreee = taskService.createTask(tacheAcreer);
+
+		assertNotNull(tacheCreee.getId());
+		assertEquals("Nouvelle Tache", tacheCreee.getTitle());
+		verify(taskRepository, times(1)).save(tacheAcreer);
+
+	}
 
 }
